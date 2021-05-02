@@ -142,8 +142,34 @@ public class FXMLDocumentController implements Initializable {
             operation = 4; //Division
             display.setText("");
         }
-        else if (event.getSource() == equals) {
-            float secondOperand = Float.parseFloat(display.getText());
+        
+        //añadido por miguel
+         else if (event.getSource() == tenPow) {
+            data = Float.parseFloat(display.getText());
+            operation = 5; //potencia de 10
+            display.setText("");
+        }
+        else if (event.getSource() == sqrt) {
+            data = Float.parseFloat(display.getText());
+            operation = 6; //Raiz cuadrada
+            display.setText("");
+        }
+        else if (event.getSource() == nFact) {
+            data = Float.parseFloat(display.getText());
+            operation = 7; //Factorial n!
+            display.setText("");
+        }
+        else if (event.getSource() == log) {
+            data = Float.parseFloat(display.getText());
+            operation = 8; //logaritmo
+            display.setText("");
+        }
+        else if (event.getSource() == equals ) {
+            float secondOperand = 0;
+            if(!"".equals(display.getText())  )
+            {
+                secondOperand = Float.parseFloat(display.getText());
+            }
             switch (operation) {
                 case 1: //Addition
                     float ans = Calculadora.add(data, secondOperand);
@@ -158,6 +184,27 @@ public class FXMLDocumentController implements Initializable {
                     ans = 0f;
                     ans = Calculadora.div(data, secondOperand);                    
                     display.setText(String.valueOf(ans));break;
+                    
+                    
+                case 5: //Potencia de 10
+                    ans = 0f;
+                    ans = Calculadora.tenPow(data);                    
+                    display.setText(String.valueOf(ans));break;
+                case 6: //Raiz cuadrada
+                    
+                    ans = 0f;
+                    ans = Calculadora.sqrt(data);                    
+                    display.setText(String.valueOf(ans));break;
+                case 7: //Factorial n!
+                    
+                    ans = 0f;
+                    ans = Calculadora.nFact(data);                    
+                    display.setText(String.valueOf(ans));break;
+                case 8: //logaritmo
+                    
+                    ans = 0f;
+                    ans = Calculadora.log(data);                    
+                    display.setText(String.valueOf(ans));break;   
             }
         }
     }
