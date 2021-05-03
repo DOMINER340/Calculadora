@@ -15,7 +15,7 @@ import java.util.*;
 
 public class Calculadora {
     
-    public static float add(float a, float b)
+    public static float sumar_dos_numeros(float a, float b)
     {
         return a+b;
     }
@@ -37,9 +37,9 @@ public class Calculadora {
     }
     
     
-    public static float tenPow(float a)
+    public static float Potencia_base_diez(float a)
     {
-        return a*10;
+        return (float) Math.pow(10, a );
     }
         
     public static float sqrt(float a)
@@ -49,6 +49,10 @@ public class Calculadora {
             
     public static float nFact(float a)
     {
+        if(a < 0) 
+        {
+            return Float.NaN;
+        }
         int suma = 1;
         for (int i = (int) a; i>1; i--)
         {
@@ -60,6 +64,6 @@ public class Calculadora {
                 
     public static float log(float a)
     {
-        return (float) Math.log(a);
+        return (float) Math.log10(a);
     }
 }

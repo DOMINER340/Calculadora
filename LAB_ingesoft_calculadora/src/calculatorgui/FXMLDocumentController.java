@@ -172,7 +172,7 @@ public class FXMLDocumentController implements Initializable {
             }
             switch (operation) {
                 case 1: //Addition
-                    float ans = Calculadora.add(data, secondOperand);
+                    float ans = Calculadora.sumar_dos_numeros(data, secondOperand);
                     display.setText(String.valueOf(ans));break;
                 case 2: //Subtraction
                     ans = Calculadora.substract(data, secondOperand);
@@ -188,7 +188,7 @@ public class FXMLDocumentController implements Initializable {
                     
                 case 5: //Potencia de 10
                     ans = 0f;
-                    ans = Calculadora.tenPow(data);                    
+                    ans = Calculadora.Potencia_base_diez(data);                    
                     display.setText(String.valueOf(ans));break;
                 case 6: //Raiz cuadrada
                     
