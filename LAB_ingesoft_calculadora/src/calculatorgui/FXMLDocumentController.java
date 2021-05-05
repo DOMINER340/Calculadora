@@ -194,27 +194,29 @@ public class FXMLDocumentController implements Initializable {
             if (!display.getText().isEmpty()) {
                 data = Float.parseFloat(display.getText());
                 operation = 5; //potencia de 10
+                display.setText(String.valueOf(potenciaDe10()));
             }
-            display.setText("");
         } else if (event.getSource() == sqrt) {
             if (!display.getText().isEmpty()) {
                 data = Float.parseFloat(display.getText());
                 operation = 6; //Raiz cuadrada
+                display.setText(String.valueOf(RaizCuadrada()));
             }
-            display.setText("");
         } else if (event.getSource() == nFact) {
             if (!display.getText().isEmpty()) {
                 data = Float.parseFloat(display.getText());
                 operation = 7; //Factorial n!
+                display.setText(String.valueOf(FactorialN()));
             }
-            display.setText("");
         } else if (event.getSource() == log) {
             if (!display.getText().isEmpty()) {
                 data = Float.parseFloat(display.getText());
                 operation = 8; //logaritmo
+                display.setText(String.valueOf(Logaritmo()));
             }
-            display.setText("");
-        } //añadido por Santiago
+        }
+        
+//añadido por Santiago
         else if (event.getSource() == back) {
             display.setText(Calculadora.back(display.getText()));
         } else if (event.getSource() == mod) {
@@ -254,24 +256,16 @@ public class FXMLDocumentController implements Initializable {
                         display.setText("NO SE PUEDE DIVIDR ENTRE 0");
                     break;
                 case 5: //Potencia de 10
-                    ans = 0f;
-                    ans = Calculadora.Potencia_base_diez(data);
-                    display.setText(String.valueOf(ans));
+                    display.setText(String.valueOf(potenciaDe10()));
                     break;
                 case 6: //Raiz cuadrada
-                    ans = 0f;
-                    ans = Calculadora.sqrt(data);
-                    display.setText(String.valueOf(ans));
+                    display.setText(String.valueOf(RaizCuadrada()));
                     break;
                 case 7: //Factorial n!
-                    ans = 0f;
-                    ans = Calculadora.nFact(data);
-                    display.setText(String.valueOf(ans));
+                    display.setText(String.valueOf(FactorialN()));
                     break;
                 case 8: //logaritmo
-                    ans = 0f;
-                    ans = Calculadora.log(data);
-                    display.setText(String.valueOf(ans));
+                    display.setText(String.valueOf(Logaritmo()));
                     break;
                 case 9: //mod
                     ans = 0f;
@@ -286,6 +280,34 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }
+    
+    private float potenciaDe10()
+    {
+        ans = 0f;
+        ans = Calculadora.Potencia_base_diez(data);
+        return ans;
+    }
+    
+    private float RaizCuadrada()
+    {
+        ans = 0f;
+        ans = Calculadora.sqrt(data);
+        display.setText(String.valueOf(ans));
+        return ans;
+    }
+
+    private float FactorialN() {
+        ans = 0f;
+        ans = Calculadora.nFact(data);
+        return ans;
+    }
+
+    private float Logaritmo() {
+        ans = 0f;
+        ans = Calculadora.log(data);
+        return ans;
+
     }
 
 }

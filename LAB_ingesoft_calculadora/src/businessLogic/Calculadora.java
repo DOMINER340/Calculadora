@@ -15,15 +15,16 @@ import java.util.*;
 public class Calculadora {
 
     public static float sumar_dos_numeros(float a, float b) {
-        return a + b;
+        return a + (b);
     }
 
     public static float substract(float a, float b) {
-        return a - b;
+        
+        return a -b ;
     }
 
     public static float multiply(float a, float b) {
-        return a * b;
+        return a * (b);
     }
 
     public static float div(float a, float b) {
